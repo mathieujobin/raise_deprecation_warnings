@@ -5,7 +5,15 @@ RSpec.describe RaiseDeprecationWarnings do
     expect(RaiseDeprecationWarnings::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "raise an error on deprecation warning" do
+    expect do
+      ActiveSupport::Deprecation.warn("Deprecated!")
+      # rescue Exception
+      #   debugger
+      #   raise
+    end.to raise_error(
+      Exception,
+      'Calling warn on ActiveSupport::Deprecation is deprecated and will be removed from Rails (use your own Deprecation object instead)'
+    )
   end
 end
