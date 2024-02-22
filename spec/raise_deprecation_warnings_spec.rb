@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# require 'debug'
 RSpec.describe RaiseDeprecationWarnings do
   it "has a version number" do
     expect(RaiseDeprecationWarnings::VERSION).not_to be nil
@@ -13,7 +14,8 @@ RSpec.describe RaiseDeprecationWarnings do
       #   raise
     end.to raise_error(
       Exception,
-      'Calling warn on ActiveSupport::Deprecation is deprecated and will be removed from Rails (use your own Deprecation object instead)'
+      'Calling warn on ActiveSupport::Deprecation is deprecated and will be ' \
+      'removed from Rails (use your own Deprecation object instead)'
     )
   end
 end
