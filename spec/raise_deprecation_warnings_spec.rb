@@ -8,7 +8,7 @@ RSpec.describe RaiseDeprecationWarnings do
 
   it "raise an error on deprecation warning" do
     error_message =
-      if ActiveSupport.version >= "7.0"
+      if ActiveSupport.version >= "7.1"
         'Calling warn on ActiveSupport::Deprecation is deprecated and will be ' \
           'removed from Rails (use your own Deprecation object instead)'
       else
